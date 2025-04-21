@@ -1,92 +1,63 @@
-import { Button } from '@/components/ui/button';
-import { Instagram, Facebook, YouTube, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-green-dark text-white pt-12 pb-6">
+    <footer className="bg-brand-green-dark text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Школа Заботливых Языков</h3>
-            <p className="text-brand-beige-light mb-4">
-              Делаем изучение языков доступным, увлекательным и эффективным
-            </p>
-            <div className="flex space-x-3">
-              <Button size="icon" variant="ghost" className="text-brand-beige-light hover:text-white hover:bg-brand-green">
-                <Instagram className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="ghost" className="text-brand-beige-light hover:text-white hover:bg-brand-green">
+            <h3 className="text-xl font-bold mb-4">Школа языков</h3>
+            <p className="mb-4">Мы делаем изучение языков доступным, интересным и эффективным для каждого.</p>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-brand-beige transition-colors">
                 <Facebook className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="ghost" className="text-brand-beige-light hover:text-white hover:bg-brand-green">
-                <YouTube className="h-5 w-5" />
-              </Button>
+              </a>
+              <a href="#" className="hover:text-brand-beige transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-brand-beige transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-brand-beige transition-colors">
+                <Mail className="h-5 w-5" />
+              </a>
             </div>
           </div>
           
           <div>
             <h3 className="text-xl font-bold mb-4">Языки</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Английский</a>
-              </li>
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Испанский</a>
-              </li>
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Французский</a>
-              </li>
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Немецкий</a>
-              </li>
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Итальянский</a>
-              </li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Английский</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Испанский</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Французский</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Немецкий</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Итальянский</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-xl font-bold mb-4">Информация</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">О нас</a>
-              </li>
-              <li>
-                <a href="#process" className="text-brand-beige-light hover:text-white">Как мы работаем</a>
-              </li>
-              <li>
-                <a href="#benefits" className="text-brand-beige-light hover:text-white">Преимущества</a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-brand-beige-light hover:text-white">Цены</a>
-              </li>
-              <li>
-                <a href="#" className="text-brand-beige-light hover:text-white">Блог</a>
-              </li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">О нас</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Преподаватели</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Блог</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Вакансии</a></li>
+              <li><a href="#" className="hover:text-brand-beige transition-colors">Контакты</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-xl font-bold mb-4">Контакты</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                <span>+7 (999) 123-45-67</span>
-              </li>
-              <li className="flex items-start">
-                <Mail className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                <span>info@languageschool.ru</span>
-              </li>
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                <span>г. Москва, ул. Языковая, д. 42</span>
-              </li>
-            </ul>
+            <address className="not-italic">
+              <p className="mb-2">г. Москва, ул. Примерная, д. 123</p>
+              <p className="mb-2">+7 (999) 123-45-67</p>
+              <p className="mb-2">info@language-school.ru</p>
+            </address>
           </div>
         </div>
         
-        <div className="border-t border-brand-green pt-6 text-center text-brand-beige-light">
-          <p>&copy; {new Date().getFullYear()} Школа Заботливых Языков. Все права защищены.</p>
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p>&copy; {new Date().getFullYear()} Школа иностранных языков. Все права защищены.</p>
         </div>
       </div>
     </footer>

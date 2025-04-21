@@ -1,36 +1,27 @@
-import { 
-  MessageSquare, 
-  UserSearch, 
-  PlayCircle, 
-  CreditCard 
-} from 'lucide-react';
+import { Phone, UserRound, BookOpen, CreditCard } from 'lucide-react';
 
 const ProcessSteps = () => {
   const steps = [
     {
-      id: 1,
-      title: "Консультация",
-      description: "Бесплатная консультация поможет определить ваш текущий уровень и поставить цели обучения",
-      icon: <MessageSquare className="h-12 w-12 text-brand-green" />
+      icon: <Phone className="h-10 w-10 text-white" />,
+      title: 'Консультация',
+      description: 'Бесплатная консультация для определения ваших целей и уровня владения языком',
     },
     {
-      id: 2,
-      title: "Подбор преподавательницы",
-      description: "Мы найдем для вас опытного педагога, который идеально соответствует вашим потребностям",
-      icon: <UserSearch className="h-12 w-12 text-brand-green" />
+      icon: <UserRound className="h-10 w-10 text-white" />,
+      title: 'Подбор преподавательницы',
+      description: 'Подберем идеального преподавателя с учетом ваших интересов и целей обучения',
     },
     {
-      id: 3,
-      title: "Пробное занятие",
-      description: "Познакомьтесь с преподавателем и нашей методикой на бесплатном пробном уроке",
-      icon: <PlayCircle className="h-12 w-12 text-brand-green" />
+      icon: <BookOpen className="h-10 w-10 text-white" />,
+      title: 'Пробное занятие',
+      description: 'Познакомитесь с методикой обучения и убедитесь, что вам комфортно',
     },
     {
-      id: 4,
-      title: "Покупка абонемента",
-      description: "Выберите удобный для вас пакет занятий и начните свое языковое путешествие",
-      icon: <CreditCard className="h-12 w-12 text-brand-green" />
-    }
+      icon: <CreditCard className="h-10 w-10 text-white" />,
+      title: 'Покупка абонемента',
+      description: 'Выберите удобный тариф и начните регулярные занятия',
+    },
   ];
 
   return (
@@ -38,22 +29,20 @@ const ProcessSteps = () => {
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Как проходит работа в школе</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step) => (
-            <div 
-              key={step.id} 
-              className="bg-brand-beige-light rounded-lg p-6 shadow-md hover-scale"
-            >
-              <div className="mb-4 flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+          {steps.map((step, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <div className="w-20 h-20 rounded-full bg-brand-green flex items-center justify-center mb-4 shadow-lg">
                 {step.icon}
               </div>
-              <div className="flex items-center justify-center mb-4">
-                <span className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
-                  {step.id}
-                </span>
-                <h3 className="text-xl font-bold ml-2 text-brand-green-dark">{step.title}</h3>
+              
+              <div className="text-3xl font-bold text-brand-green-dark mb-2">
+                {index + 1}
               </div>
-              <p className="text-center text-gray-700">{step.description}</p>
+              
+              <h3 className="text-xl font-bold mb-2 text-brand-green-dark">{step.title}</h3>
+              
+              <p className="text-gray-700">{step.description}</p>
             </div>
           ))}
         </div>

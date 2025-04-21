@@ -1,107 +1,99 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 
-const Pricing = () => {
-  const pricingPlans = [
-    {
-      id: 1,
-      name: "Старт",
-      price: "2 900 ₽",
-      description: "Идеально для начинающих",
-      features: [
-        "4 индивидуальных занятия",
-        "Доступ к спикинг-клубам",
-        "Базовые учебные материалы",
-        "Трекер прогресса"
-      ],
-      popular: false,
-      buttonText: "Выбрать план"
-    },
-    {
-      id: 2,
-      name: "Стандарт",
-      price: "5 400 ₽",
-      description: "Наш самый популярный план",
-      features: [
-        "8 индивидуальных занятий",
-        "Безлимитные спикинг-клубы",
-        "Расширенные учебные материалы",
-        "Персональный трекер прогресса",
-        "1 консультация с психологом"
-      ],
-      popular: true,
-      buttonText: "Выбрать план"
-    },
-    {
-      id: 3,
-      name: "Интенсив",
-      price: "9 800 ₽",
-      description: "Для быстрого результата",
-      features: [
-        "16 индивидуальных занятий",
-        "Безлимитные спикинг-клубы",
-        "Премиум учебные материалы",
-        "Расширенный трекер прогресса",
-        "3 консультации с психологом",
-        "Доступ к онлайн-библиотеке"
-      ],
-      popular: false,
-      buttonText: "Выбрать план"
-    }
-  ];
+const pricingPlans = [
+  {
+    name: 'Старт',
+    price: '5 900',
+    period: 'месяц',
+    description: 'Идеально для начинающих',
+    features: [
+      '8 индивидуальных занятий',
+      'Доступ к спикинг-клубам',
+      'Учебные материалы',
+    ],
+    popular: false,
+  },
+  {
+    name: 'Стандарт',
+    price: '10 900',
+    period: 'месяц',
+    description: 'Оптимальный вариант для большинства',
+    features: [
+      '16 индивидуальных занятий',
+      'Безлимитные спикинг-клубы',
+      'Все учебные материалы',
+      'Трекер прогресса',
+      'Консультация психолога',
+    ],
+    popular: true,
+  },
+  {
+    name: 'Интенсив',
+    price: '19 900',
+    period: 'месяц',
+    description: 'Максимальные результаты',
+    features: [
+      '30 индивидуальных занятий',
+      'Безлимитные спикинг-клубы',
+      'Персонализированные материалы',
+      'Расширенный трекер прогресса',
+      'Регулярные консультации психолога',
+      'Персональный менеджер',
+    ],
+    popular: false,
+  },
+];
 
+const Pricing = () => {
   return (
     <section id="pricing" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading">Наши цены</h2>
+        <h2 className="section-heading">Наши тарифы</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {pricingPlans.map((plan) => (
-            <Card 
-              key={plan.id} 
-              className={`hover-scale ${
-                plan.popular 
-                  ? 'border-brand-green shadow-lg' 
-                  : 'border-gray-200 shadow-md'
-              }`}
-            >
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-lg text-gray-700">
+            Выберите подходящий тариф для вашего уровня и целей
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {pricingPlans.map((plan, index) => (
+            <Card key={index} className={`relative overflow-hidden ${plan.popular ? 'border-brand-green' : 'border-gray-200'}`}>
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-green text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Популярный выбор
+                <div className="absolute top-0 right-0 bg-brand-green text-white px-4 py-1 text-sm font-bold">
+                  Популярный
                 </div>
               )}
               
-              <CardHeader className={`text-center pb-2 ${plan.popular ? 'pt-8' : 'pt-6'}`}>
-                <CardTitle className="text-xl font-bold text-brand-green-dark">{plan.name}</CardTitle>
-                <p className="text-gray-600 text-sm mt-1">{plan.description}</p>
+              <CardHeader className="text-center p-6 bg-brand-beige-light">
+                <h3 className="text-2xl font-bold text-brand-green-dark">{plan.name}</h3>
+                <p className="text-gray-600 mt-2">{plan.description}</p>
               </CardHeader>
               
-              <CardContent className="text-center pb-4">
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-brand-green-dark">{plan.price}</span>
-                  <span className="text-gray-600 ml-1">/месяц</span>
+              <CardContent className="p-6">
+                <div className="text-center mb-6">
+                  <span className="text-4xl font-bold text-brand-green-dark">{plan.price} ₽</span>
+                  <span className="text-gray-600">/{plan.period}</span>
                 </div>
                 
-                <ul className="space-y-3 text-left">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="h-5 w-5 text-brand-green mr-2 mt-0.5 flex-shrink-0" />
+                <ul className="space-y-3">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <Check className="h-5 w-5 text-brand-green mr-2 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
               
-              <CardFooter>
+              <CardFooter className="p-6 pt-0">
                 <Button 
-                  className={`w-full ${
-                    plan.popular 
-                      ? 'bg-brand-green hover:bg-brand-green-dark' 
-                      : 'bg-brand-green/90 hover:bg-brand-green'
-                  }`}
+                  className={`w-full ${plan.popular ? 'bg-brand-green hover:bg-brand-green-dark' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+                  onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  {plan.buttonText}
+                  Выбрать тариф
                 </Button>
               </CardFooter>
             </Card>

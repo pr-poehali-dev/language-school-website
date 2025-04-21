@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import ProcessSteps from "@/components/ProcessSteps";
+import Approach from "@/components/Approach";
+import Benefits from "@/components/Benefits";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
+import Consultation from "@/components/Consultation";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <Hero />
+        <ProcessSteps />
+        <Approach />
+        <Benefits />
+        <Testimonials />
+        <Pricing />
+        <Consultation />
+      </main>
+      <Footer />
     </div>
   );
 };
